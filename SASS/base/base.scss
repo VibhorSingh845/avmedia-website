@@ -1,0 +1,46 @@
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+html {
+    /* font-size: 10px; */
+    /* default px size is 16px so 100% would mean 16px  */
+    /* so 10 / 16 = 0.625 hence we use 62.5% bcz it will mean 10px */
+    font-size: 62.5%;
+
+    @include respond(tab-land) {
+        font-size: 56.25%; //1rem = 9px. 9/16 = 56.25%
+    }
+    @include respond(tab-port) {
+        font-size: 50%; //1rem = 8px, 8/16 = 50%
+    }
+    @include respond(phone) {
+        font-size: 50%;
+    }
+    @include respond(big-desktop) {
+        font-size: 76%; //1rem = 12px, 12/16 = 76%
+    }
+}
+
+body {
+    // box-sizing: border-box;
+    // background-color: $color-background;
+    background-color:black;
+background-image:
+radial-gradient(white, rgba(255,255,255,.2) 2px, transparent 40px),
+radial-gradient(white, rgba(255,255,255,.15) 1px, transparent 30px),
+radial-gradient(white, rgba(255,255,255,.1) 2px, transparent 40px),
+radial-gradient(rgba(255,255,255,.4), rgba(255,255,255,.1) 2px, transparent 30px);
+background-size: 550px 550px, 350px 350px, 250px 250px, 150px 150px;
+background-position: 0 0, 40px 60px, 130px 270px, 70px 100px;
+color: $color-white;
+
+    @include respond(phone) {
+        padding: 0;
+    }
+
+}

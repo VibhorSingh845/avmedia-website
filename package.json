@@ -1,0 +1,14 @@
+{
+  "name": "avmedia",
+  "version": "1.0.0",
+  "description": "home page of avmedia",
+  "main": "index.js",
+  "scripts": {
+    "compile:sass": "node-sass SASS/main.scss CSS/style.css -w"
+  },
+  "author": "vibhor",
+  "license": "ISC",
+  "devDependencies": {
+    "node-sass": "^8.0.0"
+  }
+}
