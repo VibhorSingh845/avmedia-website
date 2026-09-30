@@ -66,7 +66,7 @@ async function enhance() {
   try {
     const { createExperience } = await import('./experience/scene.js');
     if (version === generation && !motion.matches) experience = createExperience(controller);
-  } catch { /* Static SVG and all content remain available. */ }
+  } catch { /* Static environment and all content remain available. */ }
 }
 motion.addEventListener('change', enhance, {signal});
 const idle = window.requestIdleCallback || (callback => setTimeout(callback, 100));
