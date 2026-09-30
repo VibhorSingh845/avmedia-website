@@ -9,32 +9,19 @@
         content="Contact AVMEDIA to build a med spa growth system with high-intent ads, instant follow-up, better booking flow, and transparent reporting.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Italiana&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-</head>
+<link rel="canonical" href="https://avclinicflow.com/contactUs.html"><meta name="theme-color" content="#f3f0e9"><link rel="icon" href="img/favicon.svg" type="image/svg+xml"><meta property="og:title" content="Contact AVMEDIA | Build Your Patient Flow System"><meta property="og:type" content="website"><meta property="og:image" content="https://avclinicflow.com/img/social-preview.png"></head>
 
-<body>
-    <nav class="navbar">
-        <div class="container nav-container">
-            <a href="index.html" class="logo"><span class="text-gradient">AV</span>MEDIA</a>
-            <ul class="nav-links">
-                <li><a href="index.html#system">System</a></li>
-                <li><a href="index.html#services">Services</a></li>
-                <li><a href="index.html#results">Results</a></li>
-                <li><a href="aboutUs.html">About</a></li>
-                <li><a href="contactUs.html" class="btn btn-primary">Contact</a></li>
-            </ul>
-        </div>
-    </nav>
+<body class="interior"><a class="skip-link" href="#main">Skip to content</a>
+    <nav class="navbar" aria-label="Main navigation"><div class="container nav-container"><a href="index.html" class="logo" aria-label="AVMEDIA home"><span>AV</span>MEDIA<span class="logo-dot">®</span></a><button class="menu-toggle" type="button" aria-expanded="false" aria-controls="nav-links">Menu <span aria-hidden="true">+</span></button><ul class="nav-links" id="nav-links"><li><a href="index.html#system">System</a></li><li><a href="index.html#services">Services</a></li><li><a href="index.html#results">Results</a></li><li><a href="aboutUs.html">About</a></li><li><a href="contactUs.html" class="nav-cta">Build Your System <span aria-hidden="true">↗</span></a></li></ul></div></nav>
 
-    <main class="page-shell">
+    <main class="page-shell" id="main">
         <section class="page-hero section">
-            <div class="hero-bg-glow"></div>
-            <div class="container page-hero-content fade-in-up">
+
+            <div class="container page-hero-content reveal">
                 <div class="badge">
-                    <i class="fa-solid fa-paper-plane"></i> Contact AVMEDIA
+                     Contact AVMEDIA
                 </div>
                 <h1>Let's Build a Better Patient Acquisition System</h1>
                 <p>
@@ -46,57 +33,57 @@
 
         <section class="section">
             <div class="container contact-grid contact-page-grid">
-                <div class="contact-info fade-in-up">
+                <div class="contact-info reveal">
                     <h2>What We Can Help With</h2>
                     <p>We build growth systems for med spas that want stronger lead quality, faster response, and more
                         predictable bookings.</p>
 
                     <div class="contact-item">
-                        <i class="fa-solid fa-bullhorn"></i>
+
                         <div>
                             <h4>High-intent ad strategy</h4>
                             <p>Attract enquiries for the treatments you actually want to grow.</p>
                         </div>
                     </div>
                     <div class="contact-item">
-                        <i class="fa-solid fa-mobile-screen-button"></i>
+
                         <div>
                             <h4>Instant lead follow-up</h4>
                             <p>SMS, email, notifications, and reminders that reduce response delays.</p>
                         </div>
                     </div>
                     <div class="contact-item">
-                        <i class="fa-solid fa-chart-simple"></i>
+
                         <div>
                             <h4>Clear reporting and tracking</h4>
                             <p>See how enquiries convert into consultations and where your system can improve.</p>
                         </div>
                     </div>
 
-                    <div class="contact-direct glass-card">
+                    <div class="contact-direct">
                         <h3>Direct Contact</h3>
                         <a href="mailto:marketing@avmedia.space">marketing@avmedia.space</a>
                         <p>Send us details about your clinic, treatments, and current lead flow.</p>
                     </div>
                 </div>
 
-                <div class="contact-form-wrapper glass-card fade-in-up" style="transition-delay: 0.1s;">
+                <div class="contact-form-wrapper reveal">
                     <h2>Start the Conversation</h2>
                     <p class="form-intro">Tell us a little about your clinic and what kind of growth system you want
                         to build.</p>
-                    <form class="contact-form" action="mailto:marketing@avmedia.space" method="post"
+                    <p class="form-note">This form opens your email app with your clinic details. You can also email us directly.</p><form class="contact-form" action="mailto:marketing@avmedia.space" method="post"
                         enctype="text/plain">
                         <div class="form-group">
                             <label for="name">Full Name</label>
-                            <input id="name" name="name" type="text" placeholder="Your name" required>
+                            <input id="name" name="name" autocomplete="name" type="text" placeholder="Your name" required>
                         </div>
                         <div class="form-group">
                             <label for="email">Email</label>
-                            <input id="email" name="email" type="email" placeholder="you@clinic.com" required>
+                            <input id="email" name="email" autocomplete="email" type="email" placeholder="you@clinic.com" required>
                         </div>
                         <div class="form-group">
                             <label for="business">Clinic Name</label>
-                            <input id="business" name="clinic" type="text" placeholder="Your clinic name" required>
+                            <input id="business" name="clinic" autocomplete="organization" type="text" placeholder="Your clinic name" required>
                         </div>
                         <div class="form-group">
                             <label for="services">Main Treatments</label>
@@ -131,7 +118,7 @@
         </div>
     </footer>
 
-    <script src="js/main.js"></script>
+    <script type="module" src="js/main.js"></script>
 </body>
 
 </html>

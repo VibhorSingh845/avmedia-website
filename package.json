@@ -4,7 +4,9 @@
   "description": "home page of avmedia",
   "main": "index.js",
   "scripts": {
-    "compile:sass": "node-sass SASS/main.scss CSS/style.css -w"
+    "compile:sass": "node-sass SASS/main.scss css/legacy.css -w",
+    "dev": "node tools/serve.mjs",
+    "check": "node tools/check.mjs"
   },
   "author": "vibhor",
   "license": "ISC",
