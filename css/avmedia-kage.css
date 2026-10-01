@@ -23,5 +23,5 @@ body[data-layout-closing="b"] .fin h2{writing-mode:horizontal-tb;font-size:clamp
 
 /* Keep the authored foreground motion below long-form AVmedia reading areas. */
 #fg-sky{z-index:9}
-.editorial-heading h2 span{display:block}
+
 #results,#services,#system{scroll-margin-top:90px}

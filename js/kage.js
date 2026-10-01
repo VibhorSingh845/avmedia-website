@@ -2971,6 +2971,7 @@ function splitHeadingWords() {
     const targets = lines.length ? [].slice.call(lines) : [heading];
     targets.forEach(target => {
       if (target.dataset.wordReady === 'true') return;
+      target.querySelectorAll('br').forEach(br => br.replaceWith(document.createTextNode(' ')));
       const phrase = target.textContent.replace(/\s+/g, ' ').trim();
       if (!phrase) return;
       target.dataset.wordReady = 'true';
