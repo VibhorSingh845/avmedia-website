@@ -25,3 +25,21 @@ body[data-layout-closing="b"] .fin h2{writing-mode:horizontal-tb;font-size:clamp
 #fg-sky{z-index:9}
 
 #results,#services,#system{scroll-margin-top:90px}
+
+/* Clinic courtyard: champagne, ivory, warm stone and botanical greens. */
+:root{--vermilion:#c9b28e;--ember:#e7cfaa;--bone:#eee9df;--bone-dim:#c2c7be;--muted:#9ba79c}
+#grain{opacity:.025}
+#vignette{background:linear-gradient(90deg,rgba(4,10,10,.43),transparent 48%),radial-gradient(125% 95% at 50% 42%,transparent 40%,rgba(2,4,6,.5) 100%)}
+.process-card:hover{background:rgba(28,40,34,.9)}
+.fg-el>img{filter:saturate(.35) brightness(.72)}
+.fg-wall,.fg-ruins{opacity:.65!important}
+.fg-pine{width:min(32vw,440px)!important}
+.fg-lantern{width:min(23vw,310px)!important}
+.peek-fr,.no-webgl .peek-fr{background-image:url('../img/clinic/courtyard.webp')!important}
+.card:nth-child(1) .card-fr{background-image:url('../img/clinic/courtyard.webp')!important}
+.card:nth-child(2) .card-fr{background-image:url('../img/clinic/care.webp')!important}
+.card:nth-child(3) .card-fr{background-image:url('../img/clinic/water.webp')!important}
+.no-webgl body{background-image:linear-gradient(#05070a66,#05070a88),url('../img/clinic/courtyard.webp')}
+.scene-artwork .page,.scene-artwork .nav,.scene-artwork #pre,.scene-artwork #rail,.scene-artwork #cursor,.scene-artwork #fg-sky,.scene-artwork .skip-link{visibility:hidden!important}
+.scene-artwork #gl{z-index:70}
+.scene-artwork{scrollbar-width:none}.scene-artwork::-webkit-scrollbar{display:none}

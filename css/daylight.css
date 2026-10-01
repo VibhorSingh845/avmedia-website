@@ -1,0 +1,36 @@
+/* Daylight clinic palette shared by the live scene and every page. */
+:root{--ink:#f5f4eb;--ink-2:#fffdf7;--bone:#233e38;--bone-dim:#405850;--muted:#586a60;--line:rgba(43,72,62,.23);--line-soft:rgba(43,72,62,.13);--vermilion:#426f61;--ember:#8d6d43;--gold:#987e52}
+body{background:#f5f4eb;color:#233e38}
+#gl{background:#bce2f3}#grain{opacity:.012}#vignette{background:linear-gradient(90deg,rgba(243,246,235,.28),transparent 43%)}
+#pre{background:#f5f4eb}.pre-bar{background:#ced8cb}
+.nav::before{background:rgba(249,250,242,.92)}.nav-link{color:#36524a}.nav-links{color:#233e38}.brand-tx i{color:#476259}
+.hero h1{font-weight:500}.hero-sub{color:#314e45!important;text-shadow:0 1px 12px #f8fcf39c}.hero-top .eyebrow{color:#34594d}.hero-side .v{color:#45695d!important}
+.hero-action{background:#315a4d;color:#fffdf5!important;border:0;padding:13px 19px;border-radius:2px;box-shadow:0 5px 20px #355a4c12}.hero-action:hover{background:#234b3e}
+.chip p{color:#405e50}.chip .num{color:#234c40}.chip b{color:#355448}.hero-cue{color:#355448}
+.sec::before,#pathways::before{background:radial-gradient(110% 70% at 45% 50%,rgba(248,249,239,.97),rgba(247,248,238,.91) 54%,rgba(244,247,237,.65) 80%,transparent)}
+#eternity::before{background:radial-gradient(90% 75% at 50% 50%,rgba(248,249,239,.95),rgba(247,248,238,.77) 68%,transparent)}
+.foot{background:linear-gradient(rgba(244,246,235,.83),#f3f4e9 25%)}
+.issue-card,.process-card{background:rgba(255,254,247,.92);box-shadow:0 12px 30px #274b3910}.issue-card p,.process-card p{color:#4c6056}.process-card:hover{background:#edf2e6}
+.conversation{background:#fdfdf5;border-color:#bbcbbb}.conversation-line.response{background:#edf3e9}.conversation-line>span{color:#4b735f}
+.feature-list p,.result-header p,.result-desc,.stat-box>p,.testimonial-card>p,.about-content p,.info-card p{color:#425b50}
+.case-note,.metrics-panel p{color:#3c574c}.testimonial-card{background:transparent}.testimonial-top p{color:#52695e}
+.card-lab{color:#23483b}.card-lab .jp{color:#355e4c}.card-fr::after{background:linear-gradient(transparent 45%,rgba(245,248,234,.8))}.card-meta{color:#3b5b4c}
+.peek-fr{box-shadow:0 12px 32px #36594724}.peek-cap b,.peek-cap i{color:#3b584b}.peek-play svg path{fill:#315a4d}
+.cta:hover{color:#fffdf4}.foot li a,.foot-brand p{color:#4e6458}.rail i{background:#55786580}.cur-dot{border-color:#325e4966}.cur-dot.act{border-color:#325e49;background:#325e4910}
+.fg-el>img{filter:saturate(.6) brightness(1.28);opacity:.42}.fg-wall,.fg-ruins,.fg-lantern{opacity:.18!important}
+.no-webgl body{background-image:linear-gradient(#f1f7ea33,#f4f7ea44),url('../img/clinic/courtyard.webp')}.no-webgl .word-fb{background:linear-gradient(#30594c,#1d4438);background-clip:text;-webkit-background-clip:text}.no-webgl .hero::after{background:none}
+@media(max-width:820px){.nav-links{background:rgba(248,250,242,.98)}.hero-top{background:linear-gradient(90deg,rgba(242,248,235,.35),transparent);border-radius:3px}.hero-sub{color:#264a3d!important}.hero-action{font-size:10px}.hero-spacer{min-height:260px}}
+/* Interior pages use their existing semantic ink/paper tokens. */
+.interior{--ink:#233e38;--paper:#f5f4eb;--red:#416c5a;--muted:#51685b;--dark:#e9eee1;--line:#cdd7c8;background:#f5f4eb;color:#233e38}
+.interior .navbar,.interior .navbar.is-scrolled{background:#f8f9f0ed;color:#233e38}.interior .nav-menu a{color:#294e40}.interior .logo{color:#233e38}
+.interior .page-hero{background:linear-gradient(90deg,#f4f8ede8,#f4f8ed80),url('../img/clinic/courtyard.webp') center/cover;color:#233e38}
+.interior .page-hero::before,.interior .page-hero::after{background:none}.interior .page-hero h1{color:#233e38;font-weight:500}.interior .page-hero-content>p{color:#405b4d}
+.interior .bg-darker,.interior .contact-form-wrapper,.interior .contact-direct{background:#e9eee1;color:#233e38}.interior .service-card,.interior .info-card{background:transparent;color:#233e38}.interior p{color:#496052}
+.interior .btn-primary{background:#315a4d;color:#fffdf5;border-color:#315a4d}.interior .btn-primary:hover{background:#234b3e}.interior .btn-outline{color:#315a4d;border-color:#315a4d}
+.interior .form-group input,.interior .form-group textarea{color:#233e38;border-color:#8caa97;background:#f9fbf2}.interior .form-group input::placeholder,.interior .form-group textarea::placeholder{color:#657b6c}.interior .form-group label{color:#294b3c}.interior .footer{background:#e6ecdf;color:#294b3c}.interior .footer a,.interior .footer p{color:#496151}
+@media(max-width:820px){.interior .nav-menu{background:#f6f8ee}.interior .menu-toggle span{background:#294c3d}}
+.hero::before{background:linear-gradient(rgba(241,248,241,.24),rgba(238,247,239,.05) 70%,transparent)}
+.display,.eyebrow,.body,.body-lg,.chip b,.chip p,.hero-sub{text-shadow:none!important}
+.nav{color:#264f42}.brand-tx b{color:#264f42}.hero-cue .track{background:#47685640}
+.body,.body-lg{color:#405c50}.card-lab .jp{color:#355e4c}.no-webgl .card-fr{background-color:#e2ebdb}
+@media(max-width:820px){.hero-top{background:none}}

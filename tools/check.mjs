@@ -13,7 +13,7 @@ for(const [file,copy] of Object.entries(source)){
  assert(html.includes('rel="canonical"'),`${file}: canonical`);
  assert(html.includes('id="main"'),`${file}: skip destination`);
  for(const match of html.matchAll(/(?:href|src)="([^"\s]+)"/g)){
-  const target=match[1];if(/^(https?:|mailto:)/.test(target))continue;
+  const target=match[1].replace(/\?[^#]*/, '');if(/^(https?:|mailto:)/.test(target))continue;
   const [relative,hash]=target.split('#');const dest=relative||file;
   assert(fs.existsSync(path.resolve(root,dest)),`${file}: missing ${dest}`);
   if(hash){const destination=fs.readFileSync(dest,'utf8');assert(destination.includes(`id="${hash}"`),`${file}: missing #${hash}`);}links++;
