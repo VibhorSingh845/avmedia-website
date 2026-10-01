@@ -1,8 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <!-- Google tag (gtag.js) -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>AVMEDIA | Predictable Patient Flow for Med Spas</title>
+<meta name="description"
+        content="AVMEDIA builds patient acquisition systems for med spas with Meta ads, instant follow-up, appointment booking, and transparent reporting.">
+<link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="landing-pages/secret-pathways-assets/fonts.css">
+<link rel="stylesheet" href="css/kage.css">
+<link rel="stylesheet" href="css/avmedia-kage.css">
+<link rel="canonical" href="https://avclinicflow.com/">
+<meta property="og:title" content="AVMEDIA | Predictable Patient Flow for Med Spas">
+<meta property="og:description" content="Marketing systems, instant follow-up, and transparent reporting for modern med spas.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://avclinicflow.com/">
+<meta property="og:image" content="https://avclinicflow.com/img/social-preview.png">
+<!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-T0M01M1FXW"></script>
     <script>
     window.dataLayer = window.dataLayer || [];
@@ -11,76 +25,136 @@
 
     gtag('config', 'G-T0M01M1FXW');
     </script>
-
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AVMEDIA | Predictable Patient Flow for Med Spas</title>
-    <meta name="description"
-        content="AVMEDIA builds patient acquisition systems for med spas with Meta ads, instant follow-up, appointment booking, and transparent reporting.">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/cinematic.css">
-    <link rel="canonical" href="https://avclinicflow.com/">
-    <meta name="theme-color" content="#0b0e10">
-    <meta property="og:title" content="AVMEDIA | Predictable Patient Flow for Med Spas">
-    <meta property="og:description" content="Marketing systems, instant follow-up, and transparent reporting for modern med spas.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://avclinicflow.com/">
-    <meta property="og:image" content="https://avclinicflow.com/img/social-preview.png">
-    <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+<noscript><style>#pre{display:none}[data-rv],.word{opacity:1;transform:none}.mask-line>span{transform:none!important}.word-fb{display:block}.nav-links{position:static;transform:none;visibility:visible;opacity:1;pointer-events:auto}.nav{position:relative;height:auto;flex-wrap:wrap;padding-block:20px}.hero-top{padding-top:20px}</style></noscript>
 </head>
+<body data-layout-hero="b" data-layout-story="b" data-layout-gallery="b"
+      data-layout-curriculum="b" data-layout-closing="b" data-layout-footer="b">
 
-<body class="landing">
-<div class="world" aria-hidden="true"><picture><source media="(max-width:640px)" srcset="img/sanctuary-mobile.webp"><img src="img/sanctuary.webp" alt="" fetchpriority="high" width="1672" height="941"></picture></div>
-<a class="skip-link" href="#main">Skip to content</a><nav class="navbar" aria-label="Main navigation"><div class="container nav-container"><a href="index.html" class="logo" aria-label="AVMEDIA home"><span>AV</span>MEDIA<span class="logo-dot">®</span></a><button class="menu-toggle" type="button" aria-expanded="false" aria-controls="nav-links">Menu <span aria-hidden="true">+</span></button><ul class="nav-links" id="nav-links"><li><a href="#system">System</a></li><li><a href="#services">Services</a></li><li><a href="#results">Results</a></li><li><a href="aboutUs.html">About</a></li><li><a href="contactUs.html" class="nav-cta">Build Your System <span aria-hidden="true">↗</span></a></li></ul></div></nav><div class="reading-progress" aria-hidden="true"></div>
-<main id="main">
-<header class="hero" id="arrival" data-chapter="Arrival" data-scene="arrival">
-<div class="hero-grid" aria-hidden="true"></div>
-<div class="container hero-inner">
-<div class="hero-eyebrow">Med Spa Growth Systems <span>Beauty. Precision. Growth.</span></div>
-<h1><span class="headline-line">Predictable</span>
-<span class="headline-line"><em>Patient Flow</em></span>
-<span class="hero-ending">for Your Med Spa<span class="red-dot" aria-hidden="true"></span></span></h1>
+<a class="skip-link" href="#main">Skip to content</a>
+<canvas id="gl" aria-hidden="true"></canvas>
+<div id="vignette"></div>
+<div id="grain"></div>
+<div class="cur-dot" id="cursor"></div>
 
+<!-- ============================================================ preloader -->
+<div id="pre">
+  <div class="pre-in">
+    <div class="pre-mark">
+      <svg viewBox="0 0 44 44" fill="none" aria-hidden="true">
+        <circle cx="22" cy="24" r="9.5" stroke="#e0231c" stroke-width="1.2"/>
+        <path d="M6 12h32M9.5 17h25M22 8v28" stroke="#dfe7e0" stroke-width="1.2"/>
+      </svg>
+    </div>
+    <div class="pre-jp jp">AVMEDIA</div>
+    <div class="pre-bar"><i id="pre-fill"></i></div>
+    <div class="pre-meta">
+      <span>Preparing your experience</span><b><span id="pre-pct">0</span>%</b>
+    </div>
+  </div>
+</div>
 
-<div class="hero-bottom"><a href="contactUs.html" class="btn btn-primary">Build Your System <span aria-hidden="true">↗</span></a><p class="hero-sub">We build the system that attracts the right patients, nurtures them automatically, and keeps your consultation calendar full without discounting your brand.</p><a href="#system" class="scroll-link">See How It Works <span aria-hidden="true">↓</span></a></div>
-<div class="hero-wordmark" aria-hidden="true">AVMEDIA</div><div class="hero-highlights"><span>Meta ads for high-intent treatments</span><span>Instant SMS and email follow-up</span><span>Clear reporting tied to revenue</span></div>
-</div></header>
-<section class="visual-chapter section" aria-label="Beauty. Precision. Growth."><div class="container"><div class="scene-label"><span>THE AVMEDIA APPROACH</span> Designed around your world</div><div class="visual-grid"><figure class="visual-portrait reveal"><img src="img/beauty-editorial.webp" alt="Warm light across a serene face, an editorial study in beauty" loading="lazy" width="1100" height="1375"><figcaption><span>01 / BEAUTY</span><strong>A higher standard.</strong></figcaption></figure><div class="visual-aside"><div class="visual-statement"><span class="micro-label">BEAUTY. PRECISION. GROWTH.</span><p>Your treatments<br>are exceptional.<br><em>Your growth<br>should be too.</em></p><a href="#system" class="scroll-link">Discover the system <span aria-hidden="true">↘</span></a></div><figure class="visual-architecture reveal"><img src="img/sanctuary.webp" alt="Warm travertine architecture surrounding an illuminated glass droplet" loading="lazy" width="1672" height="941"><figcaption><span>02 / PRECISION</span><strong>Every detail connected.</strong></figcaption></figure></div></div></div></section>
-<section class="section problem-section" id="problem" data-chapter="The gap"><div class="container">
+<!-- ============================================================ nav -->
+<header class="nav" id="nav">
+  <a class="brand" href="#top" data-cursor>
+    <svg viewBox="0 0 44 44" fill="none" aria-hidden="true">
+      <circle cx="22" cy="25" r="8.6" fill="#e0231c" fill-opacity=".9"/>
+      <path d="M5 13h34M9 18.4h26M22 8.5v27" stroke="#dfe7e0" stroke-width="1.5"/>
+      <path d="M14 35.5h16" stroke="#dfe7e0" stroke-width="1.2" stroke-opacity=".6"/>
+    </svg>
+    <span class="brand-tx"><b>AVMEDIA</b><i>MED SPA GROWTH SYSTEMS</i></span>
+  </a>
+  <nav class="nav-links" id="navlinks" aria-label="Main navigation"><a class="nav-link" href="#lessons" data-cursor><span>System</span><span class="alt">How it works</span></a><a class="nav-link" href="#services" data-cursor><span>Services</span><span class="alt">Automation</span></a><a class="nav-link" href="#results" data-cursor><span>Results</span><span class="alt">Performance</span></a><a class="nav-link" href="aboutUs.html" data-cursor><span>About</span><span class="alt">AVmedia</span></a><a class="nav-link" href="contactUs.html" data-cursor><span>Let's talk</span><span class="alt">Get in touch</span></a></nav>
+  <button class="nav-burger" aria-label="Menu" data-cursor><i></i><i></i></button>
+</header>
+
+<main class="page" id="main"><div id="top"></div>
+
+<!-- ============================================================ hero -->
+<section class="hero" id="hero" data-cam="0">
+  <div class="hero-top">
+    <div class="eyebrow" data-rv="fade"><span class="dot"></span> Med Spa Growth Systems</div>
+    <h1 class="display h-hero">
+      <span class="mask-line"><span>Predictable</span></span>
+      <span class="mask-line"><span>Patient Flow</span></span>
+      <span class="mask-line"><span>for Your Med Spa</span></span>
+    </h1>
+    <p class="hero-sub body" data-rv="up">We build the system that attracts the right patients, nurtures them automatically, and keeps your consultation calendar full without discounting your brand.</p><a class="arrowlink hero-action" href="contactUs.html" data-cursor>Build Your System <span aria-hidden="true">↗</span></a>
+  </div>
+
+  <div class="hero-spacer"></div>
+
+  <div class="hero-foot">
+    <div class="hero-cue" data-rv="fade"><span>Scroll to enter</span><span class="track"><i></i></span></div>
+    <div class="chapters" id="chips">
+      <div class="chip" data-chip="0" data-rv="up" data-cursor><span class="num">01</span>
+        <span class="tx"><b>Attract</b><p>Meta ads for high-intent treatments</p></span></div>
+      <div class="chip" data-chip="1" data-rv="up" data-cursor><span class="num">02</span>
+        <span class="tx"><b>Follow Up</b><p>Instant SMS and email follow-up</p></span></div>
+      <div class="chip" data-chip="2" data-rv="up" data-cursor><span class="num">03</span>
+        <span class="tx"><b>Book</b><p>Integrated Appointment Booking</p></span></div>
+      <div class="chip" data-chip="3" data-rv="up" data-cursor><span class="num">04</span>
+        <span class="tx"><b>Measure</b><p>Clear reporting tied to revenue</p></span></div>
+    </div>
+  </div>
+
+  <a class="peek" href="#pathways" data-view="3" data-rv="fade" data-cursor aria-label="See How It Works">
+    <!-- data-frame, or the live view is blitted over the whole anchor and
+         runs on down behind the caption instead of stopping at the frame -->
+    <span class="peek-fr" data-frame></span>
+    <span class="peek-play"><svg viewBox="0 0 22 22" fill="none"><path d="M8 5.6 16.4 11 8 16.4z" fill="#dfe7e0"/></svg></span>
+    <span class="peek-cap"><b>01</b><i>See How It Works</i></span>
+  </a>
+
+  <div class="word-fb" aria-hidden="true">AVMEDIA</div>
+
+  <div class="hero-side" data-rv="up">
+    <span class="v jp">AVMEDIA</span>
+  </div>
+</section>
+
+<!-- ============================================================ chapter I -->
+<section class="sec" id="gate" data-cam="1"><div class="fg" data-fg="gate" aria-hidden="true">
+    <span class="fg-el fg-wall" data-fg-in="left">
+      <img src="landing-pages/secret-pathways-assets/foreground/png/temple-wall.webp" alt="" width="1536" height="884" loading="lazy" decoding="async">
+    </span>
+    <span class="fg-el fg-pine" data-fg-in="right">
+      <img src="landing-pages/secret-pathways-assets/foreground/png/pine-tree.webp" alt="" width="1024" height="1438" loading="lazy" decoding="async">
+    </span>
+    <span class="fg-el fg-grass" data-fg-in="up">
+      <img src="landing-pages/secret-pathways-assets/foreground/png/tall-grass.webp" alt="" width="1717" height="916" loading="lazy" decoding="async">
+    </span>
+  </div>
+  <div class="container">
 <div class="scene-label"><span>01 /</span> The gap between interest & appointments</div>
-<div class="editorial-heading reveal"><h2>Interest Is There.<br><em>The System Is Not.</em></h2><p>Most med spas do not have a lead handling system that matches the quality of their treatments.</p></div>
-<div class="issue-grid"><article class="issue-card reveal">
+<div class="editorial-heading"><h2 class="display h-sec" data-rv="up">Interest Is There.<br>The System Is Not.</h2><p>Most med spas do not have a lead handling system that matches the quality of their treatments.</p></div>
+<div class="issue-grid"><article class="issue-card">
                     <span class="issue-label">Problem 1</span>
                     <h3>Leads are not contacted fast enough</h3>
                     <p>When speed to contact is slow, serious enquiries cool off before your team ever reaches them.
                     </p>
                 </article>
-<article class="issue-card reveal">
+<article class="issue-card">
                     <span class="issue-label">Problem 2</span>
                     <h3>Front desk misses calls and messages</h3>
                     <p>High-intent patients enquire at all hours, but manual processes leave too many gaps.</p>
                 </article>
-<article class="issue-card reveal">
+<article class="issue-card">
                     <span class="issue-label">Problem 3</span>
                     <h3>No consistent follow-up after the first enquiry</h3>
                     <p>Without reminders and nurturing, interested prospects disappear before they book.</p>
                 </article>
-<article class="issue-card reveal">
+<article class="issue-card">
                     <span class="issue-label">Problem 4</span>
                     <h3>Money is spent, but appointments do not show</h3>
                     <p>Ad spend alone does not create consultations. The missing piece is the system between click and
                         booking.</p>
                 </article>
-<article class="issue-card reveal">
+<article class="issue-card">
                     <span class="issue-label">Problem 5</span>
                     <h3>Growth depends entirely on manual effort</h3>
                     <p>If everything depends on constant chasing, your clinic cannot scale predictably.</p>
                 </article>
-<article class="issue-card reveal">
+<article class="issue-card">
                     <span class="issue-label">Problem 6</span>
                     <h3>No visibility into what is actually working</h3>
                     <p>Without proper tracking, it is impossible to see which campaigns, services, and enquiries turn
@@ -88,104 +162,57 @@
                 </article></div>
 <div class="section-footnote"><span>ATTENTION IS ONLY THE BEGINNING.</span><a href="#system">Give it a system <span aria-hidden="true">↓</span></a></div>
 </div></section>
-<section class="section system-section" id="system" data-chapter="The system" data-scene="system"><div class="container">
-<div class="scene-label"><span>02 /</span> From enquiry to appointment</div>
-<div class="system-layout"><div class="system-intro"><h2 class="reveal">The System Behind Every <em>Confirmed Appointment</em></h2><p>Enquiries plus structure equals predictable appointments.</p><div class="system-caption"><span class="active-step">01</span><span>One connected patient journey.</span><span aria-hidden="true">↘</span></div></div>
-<div class="process-grid"><div class="process-card reveal">
-                    <div class="step-number">01</div>
 
-                    <h3>Ads Bring In High-Intent Leads</h3>
-                    <p>Targeted Meta ads focused on services like Botox, fillers, laser treatments, facials, and other
-                        core profit drivers.</p>
-                </div>
-<div class="process-card reveal">
-                    <div class="step-number">02</div>
-
-                    <h3>Leads Are Segregated and Tagged</h3>
-                    <p>Hot vs cold leads, service-wise separation, and campaign-wise tracking so your team knows what
-                        matters most.</p>
-                </div>
-<div class="process-card reveal">
-                    <div class="step-number">03</div>
-
-                    <h3>Instant SMS and Email Response</h3>
-                    <p>Every lead receives a personalized message the moment they enquire, while intent is still high.
-                    </p>
-                </div>
-<div class="process-card reveal">
-                    <div class="step-number">04</div>
-
-                    <h3>Your Staff Gets Notified to Call</h3>
-                    <p>No delays and no confusion. Your front desk knows who to call, what they enquired about, and
-                        how to prioritize.</p>
-                </div>
-<div class="process-card reveal">
-                    <div class="step-number">05</div>
-
-                    <h3>Automated Follow-Ups Until They Book</h3>
-                    <p>Reminder SMS, educational emails, and booking nudges keep your pipeline active without manual
-                        chasing.</p>
-                </div>
-<div class="process-card reveal">
-                    <div class="step-number">06</div>
-
-                    <h3>Performance Tracking and Reporting</h3>
-                    <p>Clear visibility into enquiries, bookings, and conversion points so you always know what is
-                        working.</p>
-                </div><a class="text-link" href="contactUs.html">Build Your System <span aria-hidden="true">↗</span></a></div></div>
-</div></section>
-<section class="section automation-section" id="services" data-chapter="Automation" data-scene="automation"><div class="container">
-<div class="scene-label"><span>03 /</span> Tailor-Made Automation</div>
-<div class="editorial-heading reveal"><h2>Each Client Gets Their Own <em>Automation System</em></h2><p>We do not plug your clinic into a generic setup. Every AVMEDIA build is aligned to your services, team, and enquiry flow.</p></div>
-<div class="automation-layout"><div class="automation-art"><div class="conversation"><span class="micro-label">LEAD HANDLING SYSTEM / ILLUSTRATIVE JOURNEY</span><div class="conversation-line"><span>01</span><p>Thanks for your enquiry about Botox. We have received your details.</p></div><div class="conversation-line"><span>02</span><p>Our team has been notified to call you right away.</p></div><div class="conversation-line response"><span>03</span><p>Perfect, I would like to book a consultation this week.</p></div><div class="conversation-line"><span>04</span><p>Great. We will guide you to the next available slot.</p></div><div class="conversation-end"><span class="red-dot"></span> New Botox enquiry <span aria-hidden="true">→</span> Consultation booked</div></div></div><ul class="feature-list">
-                        <li>
-
-                            <div>
-                                <h3>Instant SMS Response</h3>
-                                <p>Patients hear from your clinic immediately after they enquire.</p>
-                            </div>
-                        </li>
-                        <li>
-
-                            <div>
-                                <h3>Automated Email Nurturing</h3>
-                                <p>Build trust with educational follow-up that supports premium positioning.</p>
-                            </div>
-                        </li>
-                        <li>
-
-                            <div>
-                                <h3>Lead Storage and Tracking</h3>
-                                <p>Keep every enquiry organized by service, source, and stage.</p>
-                            </div>
-                        </li>
-                        <li>
-
-                            <div>
-                                <h3>Smart Call Reminders for Your Team</h3>
-                                <p>Internal prompts help your staff follow up while intent is still fresh.</p>
-                            </div>
-                        </li>
-                        <li>
-
-                            <div>
-                                <h3>Integrated Appointment Booking</h3>
-                                <p>Move serious prospects into booked consultations with less back and forth.</p>
-                            </div>
-                        </li>
-                        <li>
-
-                            <div>
-                                <h3>Missed Enquiry Recovery</h3>
-                                <p>Recover lost opportunities from missed calls, delays, and incomplete follow-up.</p>
-                            </div>
-                        </li>
-                    </ul></div>
-</div></section>
-<section class="section results-section" id="results" data-chapter="The results"><div class="container">
+<!-- ============================================================ chapter II -->
+<section class="sec" id="pathways" data-cam="2">
+  <!-- foreground: the garden frames the mosaic from the sides and the two lower corners -->
+  <div class="fg" data-fg="pathways" aria-hidden="true">
+    <span class="fg-el fg-sakura fg-el--sway" data-fg-in="left">
+      <img src="landing-pages/secret-pathways-assets/foreground/png/sakura-branch.webp" alt="" width="1536" height="1024" loading="lazy" decoding="async">
+    </span>
+    <span class="fg-el fg-leaves fg-el--sway" data-fg-in="right">
+      <img src="landing-pages/secret-pathways-assets/foreground/png/maple-leaves.webp" alt="" width="1536" height="1024" loading="lazy" decoding="async">
+    </span>
+    <span class="fg-el fg-lantern" data-fg-in="up">
+      <img src="landing-pages/secret-pathways-assets/foreground/png/stone-lantern.webp" alt="" width="1024" height="1499" loading="lazy" decoding="async">
+    </span>
+    <span class="fg-el fg-bush" data-fg-in="up">
+      <img src="landing-pages/secret-pathways-assets/foreground/png/garden-bush.webp" alt="" width="1717" height="876" loading="lazy" decoding="async">
+    </span>
+  </div>
+  <div class="sec-head" data-rv="fade">
+    <span class="k"><b>02</b> — Predictable Growth</span><span class="rule"></span><span class="k jp">02</span>
+  </div>
+  <div class="cards" id="cards">
+    <article class="card" data-rv="up" data-view="0" data-cursor>
+      <div class="card-fr" data-frame>
+                <span class="card-ar"><svg viewBox="0 0 14 14" fill="none"><path d="M3 11 11 3M5 3h6v6" stroke="#dfe7e0" stroke-width="1.3"/></svg></span>
+        <i class="glow" style="--gx:80.2%; --gy:23.9%; --gr:22%; --gt:6.1s; --gt2:9.7s; --gc1:rgba(255,142,108,.50); --gc2:rgba(212,56,38,.24)"></i>
+        <div class="card-lab"><b>Attract</b><span class="jp">01</span></div>
+      </div>
+      <div class="card-meta"><span>High-intent enquiries</span> <span>01 / 03</span></div>
+    </article>
+    <article class="card" data-rv="up" data-view="1" data-cursor>
+      <div class="card-fr" data-frame>
+                <span class="card-ar"><svg viewBox="0 0 14 14" fill="none"><path d="M3 11 11 3M5 3h6v6" stroke="#dfe7e0" stroke-width="1.3"/></svg></span>
+        <i class="glow glow--flame" style="--gx:70.5%; --gy:47.2%; --gr:14%; --gt:3.7s; --gt2:5.3s; --gc1:rgba(255,198,124,.62); --gc2:rgba(226,118,40,.30)"></i>
+        <div class="card-lab"><b>Nurture</b><span class="jp">02</span></div>
+      </div>
+      <div class="card-meta"><span>Instant follow-up</span> <span>02 / 03</span></div>
+    </article>
+    <article class="card" data-rv="up" data-view="2" data-cursor>
+      <div class="card-fr" data-frame>
+                <span class="card-ar"><svg viewBox="0 0 14 14" fill="none"><path d="M3 11 11 3M5 3h6v6" stroke="#dfe7e0" stroke-width="1.3"/></svg></span>
+        <i class="glow" style="--gx:48.0%; --gy:16.8%; --gr:20%; --gt:7.3s; --gt2:11.2s; --gc1:rgba(255,138,104,.52); --gc2:rgba(208,54,36,.24)"></i>
+        <div class="card-lab"><b>Convert</b><span class="jp">03</span></div>
+      </div>
+      <div class="card-meta"><span>Confirmed appointments</span> <span>03 / 03</span></div>
+    </article>
+  </div>
+<div id="results" class="content-chapter"><div class="container">
 <div class="scene-label"><span>04 /</span> Full visibility. No guesswork.</div>
-<div class="editorial-heading reveal"><h2>Results.<br><em>Tracked. Verified.</em></h2><p>We believe in transparency. Every number should tie back to revenue, appointments, and operational clarity.</p></div>
-<div class="results-grid"><article class="result-card reveal">
+<div class="editorial-heading"><h2 class="display h-sec" data-rv="up">Results.<br>Tracked. Verified.</h2><p>We believe in transparency. Every number should tie back to revenue, appointments, and operational clarity.</p></div>
+<div class="results-grid"><article class="result-card">
                     <div class="result-header">
 
                         <div>
@@ -203,7 +230,7 @@
                         A steady flow of people ready to show up, not just enquire.
                     </p>
                 </article>
-<article class="result-card reveal">
+<article class="result-card">
                     <div class="result-header">
 
                         <div>
@@ -221,7 +248,7 @@
                         The faster you respond, the more bookings you secure.
                     </p>
                 </article>
-<article class="result-card reveal">
+<article class="result-card">
                     <div class="result-header">
 
                         <div>
@@ -239,11 +266,10 @@
                         Nothing slips through. Every opportunity is accounted for.
                     </p>
                 </article></div>
-<div class="case-note"><span>$18 CPL</span><span>Featured Case Study</span><span>Instant Follow-Up</span><span>Speed to contact matters</span></div>
-<div class="metrics-panel"><div><h3>What We Track</h3><p>Every number tied to revenue. Nothing else.</p></div><div class="metrics-grid"><span>Cost Per Lead</span><span>Speed to Contact</span><span>Booking Rate</span><span>Show Rate</span><span>Cost Per Acquisition</span></div></div>
-</div></section>
-<section class="section testimonials-section" id="voices" data-chapter="Clinic voices"><div class="container">
-<div class="scene-label"><span>05 /</span> Testimonials</div><div class="editorial-heading reveal"><h2>What Clinics<br><em>Are Saying</em></h2><p>Real feedback from aesthetic businesses that wanted more structure, better enquiries, and more predictable appointment flow.</p></div>
+<div class="case-note"><span>$18 CPL</span> <span>Featured Case Study</span> <span>Instant Follow-Up</span> <span>Speed to contact matters</span></div>
+<div class="metrics-panel"><div><h3>What We Track</h3><p>Every number tied to revenue. Nothing else.</p></div><div class="metrics-grid"><span>Cost Per Lead</span> <span>Speed to Contact</span> <span>Booking Rate</span> <span>Show Rate</span> <span>Cost Per Acquisition</span></div></div>
+</div></div><div class="content-chapter"><div class="container">
+<div class="scene-label"><span>05 /</span> Testimonials</div><div class="editorial-heading"><h2 class="display h-sec" data-rv="up">What Clinics<br>Are Saying</h2><p>Real feedback from aesthetic businesses that wanted more structure, better enquiries, and more predictable appointment flow.</p></div>
 <div class="testimonial-grid"><article class="testimonial-card">
                             <div class="testimonial-top">
                                 <div>
@@ -332,10 +358,148 @@
                             <p>"Patients were hearing from us faster, and our team had far fewer missed follow-up
                                 gaps."</p>
                         </article></div>
-</div></section>
-<section class="section about-section" id="studio" data-chapter="AVmedia"><div class="container"><div class="scene-label"><span>06 /</span> Full Visibility and Control</div><div class="about-split">
-                <div class="about-content reveal">
-                    <h2>Built for Med Spas That Want Structured Growth</h2>
+</div></div></section>
+
+<!-- ============================================================ chapter III -->
+<section class="sec" id="lessons" data-cam="3"><div class="fg" data-fg="lessons" aria-hidden="true">
+    <span class="fg-el fg-wall fg-el--flip" data-fg-in="right">
+      <img src="landing-pages/secret-pathways-assets/foreground/png/temple-wall.webp" alt="" width="1536" height="884" loading="lazy" decoding="async">
+    </span>
+    <span class="fg-el fg-stones" data-fg-in="up">
+      <img src="landing-pages/secret-pathways-assets/foreground/png/basalt-stones.webp" alt="" width="1536" height="996" loading="lazy" decoding="async">
+    </span>
+    <span class="fg-el fg-grass" data-fg-in="up">
+      <img src="landing-pages/secret-pathways-assets/foreground/png/tall-grass.webp" alt="" width="1717" height="916" loading="lazy" decoding="async">
+    </span>
+  </div>
+  <div id="system"><div class="container">
+<div class="scene-label"><span>02 /</span> From enquiry to appointment</div>
+<div class="system-layout"><div class="system-intro"><h2 class="display h-sec" data-rv="up">The System Behind Every Confirmed Appointment</h2><p>Enquiries plus structure equals predictable appointments.</p><div class="system-caption"><span class="active-step">01</span> <span>One connected patient journey.</span><span aria-hidden="true">↘</span></div></div>
+<div class="process-grid"><div class="process-card">
+                    <div class="step-number">01</div>
+
+                    <h3>Ads Bring In High-Intent Leads</h3>
+                    <p>Targeted Meta ads focused on services like Botox, fillers, laser treatments, facials, and other
+                        core profit drivers.</p>
+                </div>
+<div class="process-card">
+                    <div class="step-number">02</div>
+
+                    <h3>Leads Are Segregated and Tagged</h3>
+                    <p>Hot vs cold leads, service-wise separation, and campaign-wise tracking so your team knows what
+                        matters most.</p>
+                </div>
+<div class="process-card">
+                    <div class="step-number">03</div>
+
+                    <h3>Instant SMS and Email Response</h3>
+                    <p>Every lead receives a personalized message the moment they enquire, while intent is still high.
+                    </p>
+                </div>
+<div class="process-card">
+                    <div class="step-number">04</div>
+
+                    <h3>Your Staff Gets Notified to Call</h3>
+                    <p>No delays and no confusion. Your front desk knows who to call, what they enquired about, and
+                        how to prioritize.</p>
+                </div>
+<div class="process-card">
+                    <div class="step-number">05</div>
+
+                    <h3>Automated Follow-Ups Until They Book</h3>
+                    <p>Reminder SMS, educational emails, and booking nudges keep your pipeline active without manual
+                        chasing.</p>
+                </div>
+<div class="process-card">
+                    <div class="step-number">06</div>
+
+                    <h3>Performance Tracking and Reporting</h3>
+                    <p>Clear visibility into enquiries, bookings, and conversion points so you always know what is
+                        working.</p>
+                </div><a class="text-link" href="contactUs.html">Build Your System <span aria-hidden="true">↗</span></a></div></div>
+</div></div><div id="services" class="content-chapter"><div class="container">
+<div class="scene-label"><span>03 /</span> Tailor-Made Automation</div>
+<div class="editorial-heading"><h2 class="display h-sec" data-rv="up">Each Client Gets Their Own Automation System</h2><p>We do not plug your clinic into a generic setup. Every AVMEDIA build is aligned to your services, team, and enquiry flow.</p></div>
+<div class="automation-layout"><div class="automation-art"><div class="conversation"><span class="micro-label">LEAD HANDLING SYSTEM / ILLUSTRATIVE JOURNEY</span><div class="conversation-line"><span>01</span><p>Thanks for your enquiry about Botox. We have received your details.</p></div><div class="conversation-line"><span>02</span><p>Our team has been notified to call you right away.</p></div><div class="conversation-line response"><span>03</span><p>Perfect, I would like to book a consultation this week.</p></div><div class="conversation-line"><span>04</span><p>Great. We will guide you to the next available slot.</p></div><div class="conversation-end"><span class="red-dot"></span> New Botox enquiry <span aria-hidden="true">→</span> Consultation booked</div></div></div><ul class="feature-list">
+                        <li>
+
+                            <div>
+                                <h3>Instant SMS Response</h3>
+                                <p>Patients hear from your clinic immediately after they enquire.</p>
+                            </div>
+                        </li>
+                        <li>
+
+                            <div>
+                                <h3>Automated Email Nurturing</h3>
+                                <p>Build trust with educational follow-up that supports premium positioning.</p>
+                            </div>
+                        </li>
+                        <li>
+
+                            <div>
+                                <h3>Lead Storage and Tracking</h3>
+                                <p>Keep every enquiry organized by service, source, and stage.</p>
+                            </div>
+                        </li>
+                        <li>
+
+                            <div>
+                                <h3>Smart Call Reminders for Your Team</h3>
+                                <p>Internal prompts help your staff follow up while intent is still fresh.</p>
+                            </div>
+                        </li>
+                        <li>
+
+                            <div>
+                                <h3>Integrated Appointment Booking</h3>
+                                <p>Move serious prospects into booked consultations with less back and forth.</p>
+                            </div>
+                        </li>
+                        <li>
+
+                            <div>
+                                <h3>Missed Enquiry Recovery</h3>
+                                <p>Recover lost opportunities from missed calls, delays, and incomplete follow-up.</p>
+                            </div>
+                        </li>
+                    </ul></div>
+</div></div></section>
+
+<!-- ============================================================ chapter IV -->
+<section class="sec fin" id="eternity" data-cam="4"><div class="fg" data-fg="eternity" aria-hidden="true">
+    <span class="fg-el fg-hill" data-fg-in="up">
+      <img src="landing-pages/secret-pathways-assets/foreground/png/hill.webp" alt="" width="1774" height="887" loading="lazy" decoding="async">
+    </span>
+    <span class="fg-el fg-ruins" data-fg-in="left">
+      <img src="landing-pages/secret-pathways-assets/foreground/png/shrine-ruins.webp" alt="" width="1536" height="1001" loading="lazy" decoding="async">
+    </span>
+    <span class="fg-el fg-grass" data-fg-in="up">
+      <img src="landing-pages/secret-pathways-assets/foreground/png/tall-grass.webp" alt="" width="1717" height="916" loading="lazy" decoding="async">
+    </span>
+    <span class="fg-el fg-sakura" data-fg-in="left">
+      <img src="landing-pages/secret-pathways-assets/foreground/png/sakura-branch.webp" alt="" width="1536" height="1024" loading="lazy" decoding="async">
+    </span>
+  </div>
+  <div class="eyebrow">YOUR CLINIC. A BETTER SYSTEM.</div><h2 class="display" data-rv="up">Ready to Build a Better Patient Acquisition System?</h2><p class="body-lg">Let us build the ads, automation, follow-up, and tracking your clinic needs to grow with confidence.</p><a class="cta" href="contactUs.html" data-cursor><i></i><span>Book a Strategy Conversation</span> ↗</a></section>
+
+<!-- ============================================================ footer -->
+<footer class="foot" data-cam="5">
+  <!-- foreground: one planting along the lower edge of the colophon -->
+  <div class="fg" data-fg="foot" aria-hidden="true">
+    <span class="fg-el fg-bush" data-fg-in="up">
+      <img src="landing-pages/secret-pathways-assets/foreground/png/garden-bush.webp" alt="" width="1717" height="876" loading="lazy" decoding="async">
+    </span>
+    <span class="fg-el fg-grass" data-fg-in="up">
+      <img src="landing-pages/secret-pathways-assets/foreground/png/tall-grass.webp" alt="" width="1717" height="916" loading="lazy" decoding="async">
+    </span>
+    <span class="fg-el fg-stones" data-fg-in="up">
+      <img src="landing-pages/secret-pathways-assets/foreground/png/basalt-stones.webp" alt="" width="1536" height="996" loading="lazy" decoding="async">
+    </span>
+  </div>
+  <div class="container"><div class="scene-label"><span>06 /</span> Full Visibility and Control</div><div class="about-split">
+                <div class="about-content">
+                    <h2 class="display h-sec" data-rv="up">Built for Med Spas That Want Structured Growth</h2>
                     <p>
                         AVMEDIA builds complete lead handling systems that work in the background while you focus on
                         treatments, patients, and client experience.
@@ -346,7 +510,7 @@
                     </p>
                     <a href="aboutUs.html" class="btn btn-secondary">Learn More About AVMEDIA</a>
                 </div>
-                <div class="info-stack reveal">
+                <div class="info-stack">
                     <div class="info-card">
                         <h3>High-Intent Enquiries</h3>
                         <p>Campaigns are built around the treatments you actually want to grow.</p>
@@ -363,23 +527,19 @@
                 </div>
             </div>
         </div>
-    </section>
-<section class="section cta-section" id="conversation" data-chapter="Your next chapter"><div class="container cta-content"><div class="scene-label"><span>07 /</span> Your next chapter</div>
-<span class="cta-kicker">YOUR CLINIC. A BETTER SYSTEM.</span><h2 class="reveal">Ready to Build a Better <em>Patient Acquisition System?</em></h2><p>Let us build the ads, automation, follow-up, and tracking your clinic needs to grow with confidence.</p><a href="contactUs.html" class="btn btn-primary btn-lg">Book a Strategy Conversation <span aria-hidden="true">↗</span></a><div class="cta-mark" aria-hidden="true">AV</div></div></section>
-</main><footer class="footer">
-        <div class="container footer-content">
-            <div>
-                <a href="index.html" class="logo"><span class="text-gradient">AV</span>MEDIA</a>
-                <p class="footer-copy">Predictable patient flow systems for modern med spas.</p>
-            </div>
-            <div class="footer-links">
-                <a href="index.html">Home</a>
-                <a href="aboutUs.html">About</a>
-                <a href="contactUs.html">Contact</a>
-                <a href="mailto:marketing@avmedia.space">marketing@avmedia.space</a>
-            </div>
-        </div>
-    </footer>
+    <div class="foot-grid content-chapter"><div class="foot-brand"><strong>AVMEDIA</strong><p>Predictable patient flow systems for modern med spas.</p></div><div><h4>Explore</h4><ul><li><a href="index.html">Home</a></li><li><a href="aboutUs.html">About</a></li><li><a href="contactUs.html">Contact</a></li></ul></div><div><h4>Your growth</h4><ul><li><a href="#system">System</a></li><li><a href="#services">Services</a></li><li><a href="#results">Results</a></li></ul></div><div><h4>Get in touch</h4><a href="mailto:marketing@avmedia.space">marketing@avmedia.space</a></div></div><div class="foot-base"><span>© 2026 AVMEDIA</span> <span>Med Spa Growth Systems</span><a href="#top">Back to top ↑</a></div></footer>
 
-    <script type="module" src="js/main.js"></script>
-</body></html>
+</main>
+
+<!-- The near plane of the active chapter is parked here rather than inside its
+     section: .page is a stacking context at z-index 10, so nothing living in it
+     can rise past the nav. #fg-sky sits above the whole layout instead. -->
+<div id="fg-sky" aria-hidden="true"></div>
+
+<div class="rail" id="rail"></div>
+
+<script src="landing-pages/secret-pathways-assets/three.min.js"></script>
+<script src="js/kage.js" defer></script>
+<script src="js/avmedia-kage.js" defer></script>
+</body>
+</html>
