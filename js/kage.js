@@ -1065,9 +1065,8 @@ const LOW = HI === 'low';
 const WANT_POST    = qs('post', '1') !== '0';
 const WANT_SHADOW  = qs('shadow', LOW ? '0' : '1') !== '0';
 const DPR_CAP      = qn('dpr', LOW ? 1.4 : 1.8);
-/* the renderer trades resolution for frame rate on its own — the scene is
-   fill-bound (five big alpha-blended veils plus a bloom chain), so pixels
-   are the only knob worth turning on unknown hardware */
+/* Adapt high-DPI supersampling, but never undersample the CSS viewport.
+   Architectural edges and facade details must remain legible on every device. */
 const PERF = { scale: 1, acc: 0, n: 0, locked: qs('adapt', '1') === '0' };
 
 function initGL() {
@@ -1092,7 +1091,7 @@ function initGL() {
      moved the hall by 0.18 of a luminance unit, the fog colour moves it
      properly. And it reaches by distance, so the foreground does not
      follow it down. */
-  scene.fog = new THREE.FogExp2(0xc9e1e6, 0.0045);
+  scene.fog = new THREE.FogExp2(0xc9e1e6, 0.0015);
   scene.background = new THREE.Color(0xa4d7ee);
   camera = new THREE.PerspectiveCamera(36, vpW() / vpH(), .35, 220);
   scene.add(camera);
@@ -2674,50 +2673,21 @@ function buildCardCloth() {
 }
 
 function buildLights() {
-  scene.add(new THREE.HemisphereLight(0xd3ebff, 0xa89d7d, .45));
-
-  const key = new THREE.DirectionalLight(0xfff3df, 1.55);
-  key.position.set(-18, 35, 15);
-  key.target.position.set(0, 2.2, -12.5); scene.add(key.target);
+  // A single sun and cool sky fill preserve the depth of the shaded facade.
+  scene.add(new THREE.HemisphereLight(0xd6edff, 0x70634d, .65));
+  const key = new THREE.DirectionalLight(0xffefd9, 1.35);
+  key.position.set(-28, 42, -15);
+  key.target.position.set(0, 4, -42); scene.add(key.target);
   if (WANT_SHADOW) {
     key.castShadow = true;
-    const S = LOW ? 1024 : 2048;
-    key.shadow.mapSize.set(S, S);
+    key.shadow.mapSize.set(LOW ? 1024 : 2048, LOW ? 1024 : 2048);
     const c = key.shadow.camera;
-    c.left = -26; c.right = 26; c.top = 34; c.bottom = -16; c.near = 3; c.far = 78;
-    key.shadow.bias = -0.0012; key.shadow.normalBias = .035; key.shadow.radius = 2.2;
+    c.left = -34; c.right = 34; c.top = 30; c.bottom = -32; c.near = 1; c.far = 110;
+    key.shadow.bias = -.0003; key.shadow.normalBias = .025; key.shadow.radius = 1.2;
   }
   scene.add(key); WORLD.key = key;
-
-  /* moonlight: no shadow, no fill, purely a rim down the right-hand slope of
-     every roof — without it the hall is a flat black cut-out against the sky */
-  const moonKey = new THREE.DirectionalLight(0xe7d3aa, .85);
-  moonKey.position.set(26, 30, -60);
-  moonKey.target.position.set(0, 8, -40); scene.add(moonKey.target);
-  scene.add(moonKey);
-
-  /* The hall's own lamps. They light the podium and the top of the flight and
-     nothing else — a range that reaches the roof turns the whole building into
-     a paper lantern and the silhouette disappears. */
-  const hallL = new THREE.PointLight(0xffd9a1, 3.1, 15, 2);
-  hallL.position.set(0, PODIUM + 1.2, TEMPLE_Z + 8.6); scene.add(hallL); WORLD.hallLight = hallL;
-  [-1, 1].forEach(s => {
-    const w = new THREE.PointLight(0xffd8a5, 2.7, 11, 2);
-    w.position.set(s * 11.4, PODIUM + 1.2, TEMPLE_Z + 5.6); scene.add(w);
-  });
-
-  /* the moon throws almost nothing, but a trace of red high on the right
-     keeps it attached to the scene instead of floating on top of it */
-  const moonL = new THREE.PointLight(0xded9bc, 3.0, 46, 2);
-  moonL.position.set(11.0, 17.0, -24.0); scene.add(moonL); WORLD.moonLight = moonL;
-
-  const fill = new THREE.PointLight(0x86c6d2, 0.95, 30, 2);
-  fill.position.set(-1, 13.5, -16.0); scene.add(fill);
-
-  /* the flight is the spine of the composition — without a lamp of its own it
-     falls into the same black as the ground and the eye has nothing to climb */
-  const stairL = new THREE.PointLight(0xffd9a3, 4.2, 17, 2);
-  stairL.position.set(0, 7.6, -26.0); scene.add(stairL);
+  const rim = new THREE.DirectionalLight(0xa8d4ed, .28);
+  rim.position.set(30, 18, -60); scene.add(rim);
 }
 /* ====================================================== 6 · planar mirror */
 /* ================================================== 7 · post-processing */
@@ -2769,7 +2739,7 @@ function initPost() {
   POST.comp = new THREE.ShaderMaterial({
     uniforms: {
       tS: { value: null }, tB: { value: null }, uRes: { value: new THREE.Vector2(w, h) },
-      uT: { value: 0 }, uBloom: { value: .12 }, uCA: { value: 1 }, uGrain: { value: .001 },
+      uT: { value: 0 }, uBloom: { value: .025 }, uCA: { value: 0 }, uGrain: { value: .001 },
       uVig: { value: .12 }, uExp: { value: .62 }, uFade: { value: 1 }, uSat: { value: 1.05 }
     },
     vertexShader: QUAD_VS,
@@ -2802,7 +2772,7 @@ function initPost() {
          in linear the same curve mostly crushes the shadows, and this frame is
          nearly all shadow. Pivoted low, at 0.30, so it deepens the night
          without pulling the lit paper of the hall down with it. */
-      ' e = clamp((e - 0.30) * 1.00 + 0.30, 0.0, 1.0);\n' +
+      ' e = clamp((e - 0.42) * 1.12 + 0.42, 0.0, 1.0);\n' +
       ' gl_FragColor = vec4( e, 1.0 );\n' +
       '}'
   });
@@ -3370,7 +3340,7 @@ const INTRO = { t0: 0 };
 function resize() {
   const w = vpW(), h = vpH();
   document.documentElement.style.setProperty('--vw', w + 'px');
-  renderer.setPixelRatio(Math.min(devicePixelRatio || 1, DPR_CAP) * PERF.scale);
+  renderer.setPixelRatio(Math.max(1, Math.min(devicePixelRatio || 1, DPR_CAP) * PERF.scale));
   renderer.setSize(w, h, true);
   camera.aspect = w / h; camera.updateProjectionMatrix();
   const pw = renderer.domElement.width, ph = renderer.domElement.height;
@@ -3382,7 +3352,7 @@ function resize() {
   }
   /* multisampling is the first thing to go when the budget tightens */
   if (POST.scene) {
-    const want = (!LOW && PERF.scale > .78) ? 2 : 0;
+    const want = LOW ? 0 : 2;
     if (POST.scene.samples !== want) { POST.scene.samples = want; POST.scene.dispose(); }
   }
   CARDS.forEach(C => { C.dirty = true; });
@@ -3478,7 +3448,7 @@ function frame(now) {
     PERF.acc += raw; PERF.n++;      /* … but the governor reads the truth */
     if (PERF.n >= 40 || PERF.acc > .9) {
       const avg = PERF.acc / PERF.n; PERF.acc = 0; PERF.n = 0;
-      if (avg > .0230 && PERF.scale > .55) { PERF.scale = Math.max(.55, PERF.scale * (avg > .05 ? .64 : .85)); resize(); }
+      if (avg > .034 && PERF.scale > 1 / Math.min(devicePixelRatio || 1, DPR_CAP)) { PERF.scale = Math.max(1 / Math.min(devicePixelRatio || 1, DPR_CAP), PERF.scale * .85); resize(); }
       else if (avg < .0138 && PERF.scale < 1) { PERF.scale = Math.min(1, PERF.scale + .08); resize(); }
     }
   }
@@ -3507,7 +3477,7 @@ function clinicStone() {
     x.fillStyle='#d9cbb6';x.fillRect(0,0,512,512);
     for(let i=0;i<3200;i++) {x.fillStyle='rgba(105,85,60,.1)';x.globalAlpha=.025+r()*.09;x.fillRect(r()*512,r()*512,3+r()*80,.3+r()*1.2);}
     x.globalAlpha=1;
-    return new THREE.MeshStandardMaterial({map:tx(c,{wrap:THREE.RepeatWrapping,repeat:[2,2]}),color:0xe9dbc9,roughness:.72,metalness:.02});
+    return new THREE.MeshStandardMaterial({map:tx(c,{wrap:THREE.RepeatWrapping,repeat:[2,2]}),color:0xc4ad8c,roughness:.82,metalness:.02});
   });
 }
 function clinicBox(g,w,h,d,x,y,z,mat) {
@@ -3551,11 +3521,16 @@ function roundedSlab(g,w,d,h,r,x,y,z,mat) {
 }
 function buildTemple() {
   const g=new THREE.Group(),F=PODIUM,Z=TEMPLE_Z;
-  const stone=clinicStone(),ivory=new THREE.MeshStandardMaterial({color:0xf5f0e5,roughness:.64});
-  const bronze=new THREE.MeshStandardMaterial({color:0x89745a,metalness:.6,roughness:.35});
-  const timber=new THREE.MeshStandardMaterial({color:0xa67c50,roughness:.75});
-  const interior=new THREE.MeshStandardMaterial({color:0x82988a,roughness:.85});
-  const glass=new THREE.MeshPhysicalMaterial({color:0x8caeb5,roughness:.12,metalness:.12,transparent:true,opacity:.22,depthWrite:false});
+  const stone=clinicStone(),ivory=new THREE.MeshStandardMaterial({color:0xe4dccb,roughness:.7});
+  const bronze=new THREE.MeshStandardMaterial({color:0x493f32,metalness:.45,roughness:.4});
+  const timber=new THREE.MeshStandardMaterial({color:0x765036,roughness:.78});
+  const interior=new THREE.MeshStandardMaterial({color:0x425951,roughness:.85});
+  const glassCanvas=cvs(256,512),gc=glassCanvas.getContext('2d');
+  const reflection=gc.createLinearGradient(0,0,80,512);
+  reflection.addColorStop(0,'#85b9ca');reflection.addColorStop(.42,'#547f88');reflection.addColorStop(.43,'#2b555c');reflection.addColorStop(1,'#183e45');
+  gc.fillStyle=reflection;gc.fillRect(0,0,256,512);
+  gc.fillStyle='rgba(234,247,247,.12)';gc.beginPath();gc.moveTo(28,0);gc.lineTo(70,0);gc.lineTo(256,390);gc.lineTo(256,460);gc.closePath();gc.fill();
+  const glass=new THREE.MeshPhysicalMaterial({map:tx(glassCanvas),color:0x9bced4,roughness:.18,metalness:.1,transparent:true,opacity:.82,depthWrite:false});
   const leaf=new THREE.MeshStandardMaterial({color:0x50704b,roughness:.91});
   function planter(x,y,z,w,d){
     roundedSlab(g,w,d,.85,.35,x,y,z,stone);
@@ -3568,13 +3543,13 @@ function buildTemple() {
   roundedSlab(g,27,12,.35,2.5,-3,F+7,Z-1.8,stone);
   clinicBox(g,33,5.8,.5,0,F+3.6,Z-6,interior);
   clinicBox(g,23,5.2,.5,-3,F+9.5,Z-7,interior);
-  clinicBox(g,3.6,11.6,10,-13.5,F+6.3,Z-1,stone);
+  clinicBox(g,3.6,11.6,10,-13.5,F+6.3,Z-1,timber);
   // Fluted stone core and deep timber fins are real geometry, not a painted facade.
-  for(let i=0;i<17;i++)clinicBox(g,.075,11.1,.2,-15+i*.18,F+6.4,Z+4.1,ivory);
+  for(let i=0;i<17;i++)clinicBox(g,.075,11.1,.2,-15+i*.18,F+6.4,Z+4.1,bronze);
   for(let floor=0;floor<2;floor++){
     const width=floor?23:32,y=F+(floor?9.55:3.6),cx=floor?-3:1,z=Z+(floor?4.2:6.7);
     clinicBox(g,width,5.1,.09,cx,y,z,glass);
-    for(let x=-width/2;x<=width/2+.1;x+=2.25)clinicBox(g,.055,5.2,.15,cx+x,y,z+.12,bronze);
+    for(let x=-width/2;x<=width/2+.1;x+=2.25)clinicBox(g,.085,5.2,.18,cx+x,y,z+.12,bronze);
     // A set-back ceiling and repeated linear strips give depth to the soffit.
     clinicBox(g,width,.16,8,cx,y+2.6,z-3.9,timber);
     for(let x=-width/2;x<width/2;x+=.5)clinicBox(g,.045,.18,8,cx+x,y+2.46,z-3.9,bronze);
@@ -3604,7 +3579,7 @@ function buildTemple() {
   const door=new THREE.Mesh(new THREE.CylinderGeometry(1.35,1.35,4,48,1,true,Math.PI,Math.PI),glass);door.position.set(1,F+2.65,Z+6.4);g.add(door);
   clinicBox(g,.05,4.1,2.3,1,F+2.65,Z+6.4,bronze);
   roundedSlab(g,5,1.5,1.3,.7,1,F+.7,Z+2,stone);
-  const signCanvas=cvs(1024,160),ctx=signCanvas.getContext('2d');ctx.fillStyle='#30453e';ctx.textAlign='center';ctx.font='500 64px Onest,sans-serif';ctx.fillText('A E S T H E T I C S',512,95);
+  const signCanvas=cvs(1024,160),ctx=signCanvas.getContext('2d');ctx.fillStyle='#eee4cd';ctx.textAlign='center';ctx.font='500 64px Onest,sans-serif';ctx.fillText('A E S T H E T I C S',512,95);
   const sign=new THREE.Mesh(new THREE.PlaneGeometry(9,1.4),new THREE.MeshBasicMaterial({map:tx(signCanvas),transparent:true,depthWrite:false}));sign.position.set(-3,F+11.3,Z+4.4);g.add(sign);
   // Terrace lounge furniture and arrival planting complete the human scale.
   [8,11].forEach(x=>{roundedSlab(g,1.7,2.6,.35,.4,x,F+7.5,Z+2,ivory);clinicBox(g,1.6,.8,.25,x,F+8,Z+.8,timber);});
